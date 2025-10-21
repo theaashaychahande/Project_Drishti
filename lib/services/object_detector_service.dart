@@ -13,10 +13,10 @@ class ObjectDetectorService {
   static Future<List<DetectedObject>> detectObjects(
       InputImage inputImage) async {
     try {
-      print('🔍 Starting object detection...');
+      print(' Starting object detection...');
       final List<DetectedObject> objects =
           await _objectDetector.processImage(inputImage);
-      print('✅ Objects detected: ${objects.length}');
+      print(' Objects detected: ${objects.length}');
 
       for (var i = 0; i < objects.length; i++) {
         final obj = objects[i];
@@ -38,7 +38,6 @@ class ObjectDetectorService {
     _objectDetector.close();
   }
 
-  // Filter for important objects we care about
   static List<DetectedObject> filterImportantObjects(
       List<DetectedObject> objects) {
     final filtered = objects.where((object) {
@@ -47,7 +46,6 @@ class ObjectDetectorService {
       final label = object.labels.first.text.toLowerCase();
       final confidence = object.labels.first.confidence;
 
-      // Only return objects with good confidence
       final isImportant = (label.contains('person') ||
               label.contains('car') ||
               label.contains('vehicle') ||
@@ -68,7 +66,6 @@ class ObjectDetectorService {
     return filtered;
   }
 
-  // Get distance estimation based on bounding box size
   static String estimateDistance(Rect boundingBox, Size imageSize) {
     final boxArea = boundingBox.width * boundingBox.height;
     final imageArea = imageSize.width * imageSize.height;
