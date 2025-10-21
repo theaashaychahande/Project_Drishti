@@ -52,3 +52,62 @@
    - Locate the downloaded file
    - Tap to install
 4. **Launch the app** and grant camera permissions
+
+## 🛠️ Technical Stack
+
+- **Framework:** Flutter
+- **Computer Vision:** Google ML Kit
+- **Camera:** camera package
+- **State Management:** Provider/Riverpod
+- **Platform:** Android
+
+## 📁 Project Structure
+Project_Drishti/
+├── lib/
+│ ├── main.dart
+│ ├── screens/
+│ ├── services/
+│ └── utils/
+├── android/
+├── ios/
+└── pubspec.yaml
+
+
+## 🎨 Usage Instructions
+
+1. **Launch the app** and grant camera permissions
+2. **Point camera** at objects/text/barcodes
+3. **Features work automatically** - no buttons needed!
+4. **Get haptic feedback** when objects are detected
+
+## 🤝 Contributing & Usage
+
+**Feel free to:**
+- Use this code for learning purposes
+- Experiment with ML Kit integrations
+- Modify and extend features
+- Learn Flutter development patterns
+
+**Please don't:**
+- Expect production-level reliability
+- Use in commercial applications without significant modifications
+- Report bugs as if it's a finished product
+
+## 📝 Development Notes
+
+This project was built as:
+- Learning exercise in Flutter development
+- Proof-of-concept for vision-based apps
+- MVP demonstration for stakeholder reviews
+- Testing ground for Google ML Kit features
+
+## 🔮 Future Enhancements (Potential)
+
+- Improved UI/UX design
+- Better error handling
+- Performance optimizations
+- Additional ML features
+- Cross-platform improvements
+
+  
+
