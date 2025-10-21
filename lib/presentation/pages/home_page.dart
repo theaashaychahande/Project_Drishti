@@ -13,7 +13,6 @@ class HomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // App title for screen readers
               Semantics(
                 header: true,
                 child: const Text(
@@ -26,7 +25,6 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 50),
-              // Large start button
               Semantics(
                 button: true,
                 label:
@@ -51,7 +49,6 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              // Instructions for screen readers
               Semantics(
                 liveRegion: true,
                 child: const Padding(
