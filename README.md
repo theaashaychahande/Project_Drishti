@@ -61,17 +61,6 @@
 - **State Management:** Provider/Riverpod
 - **Platform:** Android
 
-Project Structure
-Project_Drishti/
-├── lib/
-│   ├── main.dart
-│   ├── screens/
-│   ├── services/
-│   └── utils/
-├── android/
-├── ios/
-└── pubspec.yaml
-
 ## 🎨 Usage Instructions
 
 1. **Launch the app** and grant camera permissions
@@ -108,5 +97,38 @@ This project was built as:
 - Additional ML features
 - Cross-platform improvements
 
+## 📄 License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+
+### 📋 Key Points of GPL v3.0:
+- ✅ **Free to use** - You can use this software for any purpose
+- ✅ **Free to study** - You can study how the program works and change it
+- ✅ **Free to share** - You can distribute copies of the software
+- ✅ **Free to improve** - You can release your improved versions to the public
+
+### 🔒 Copyleft Requirement:
+- If you distribute modified versions, you **must**:
+  - Make source code available under same GPL v3.0 license
+  - Include original copyright notices
+  - State significant changes made
+  - Keep same license terms for downstream users
+
+For complete terms and conditions, please read the full [GPL v3.0 license text](LICENSE).
+
+### Build from Source
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/Project_Drishti.git
+
+# Navigate to project
+cd Project_Drishti
+
+# Install dependencies
+flutter pub get
+
+# Run on connected device
+flutter run
   
 
