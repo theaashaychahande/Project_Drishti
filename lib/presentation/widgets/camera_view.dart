@@ -70,7 +70,6 @@ class _CameraViewState extends State<CameraView> {
           _detectedText = OcrService.filterImportantText(text);
         });
 
-        // Debug: Print what we found
         if (_detectedObjects.isNotEmpty) {
           print('FILTERED OBJECTS:');
           for (var obj in _detectedObjects) {
@@ -88,19 +87,16 @@ class _CameraViewState extends State<CameraView> {
 
   void _announceDetections() {
     final now = DateTime.now();
-    // Only speak every 4 seconds to avoid spam
     if (now.difference(_lastSpeechTime).inSeconds < 4) return;
 
     String speech = '';
     List<String> objectAlerts = [];
 
-    // Process objects
     for (final object in _detectedObjects.take(2)) {
       if (object.labels.isNotEmpty) {
         final label = object.labels.first.text;
         final confidence = object.labels.first.confidence;
 
-        // Only announce high confidence detections
         if (confidence > 0.5) {
           final distance = ObjectDetectorService.estimateDistance(
             object.boundingBox,
@@ -112,7 +108,6 @@ class _CameraViewState extends State<CameraView> {
 
           objectAlerts.add('$label $distance');
 
-          // Vibrate for close objects
           if (distance == 'very close' || distance == 'close') {
             VibrationService.vibrateWarning();
           }
@@ -120,12 +115,10 @@ class _CameraViewState extends State<CameraView> {
       }
     }
 
-    // Add object alerts to speech
     if (objectAlerts.isNotEmpty) {
       speech += 'Detected: ${objectAlerts.join(', ')}. ';
     }
 
-    // Announce important text
     if (_detectedText.isNotEmpty) {
       speech += 'Sign: $_detectedText.';
     }
@@ -149,7 +142,6 @@ class _CameraViewState extends State<CameraView> {
       children: [
         CameraPreview(CameraService.controller),
 
-        // Object detection overlays
         ..._detectedObjects.map((object) {
           return CustomPaint(
             painter: ObjectPainter(
@@ -162,7 +154,6 @@ class _CameraViewState extends State<CameraView> {
           );
         }).toList(),
 
-        // Detection info panel
         Positioned(
           top: 10,
           left: 10,
@@ -190,23 +181,20 @@ class _CameraViewState extends State<CameraView> {
           ),
         ),
 
-        // SIMPLE TEST BUTTON - FIXED VERSION
         Positioned(
           bottom: 100,
           right: 10,
           child: ElevatedButton(
             onPressed: () {
-              // Test 1: Check if voice works
               TtsService.speak("Test voice is working!");
 
-              // Test 2: Check if we can draw boxes - USE CORRECT CONSTRUCTOR
               setState(() {
                 _detectedText = "TEST MODE ACTIVE";
                 _detectedObjects = [
                   DetectedObject(
                     boundingBox: Rect.fromLTWH(100, 150, 250, 350),
                     labels: [],
-                    trackingId: 1, // ADD THIS REQUIRED PARAMETER
+                    trackingId: 1, 
                   )
                 ];
               });
@@ -230,10 +218,9 @@ class ObjectPainter extends CustomPainter {
     final Paint paint = Paint()
       ..color = Colors.red
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 4.0; // Thicker line
+      ..strokeWidth = 4.0; 
 
     try {
-      // Convert bounding box coordinates to screen coordinates
       final scaleX = size.width / imageSize.width;
       final scaleY = size.height / imageSize.height;
 
@@ -244,10 +231,8 @@ class ObjectPainter extends CustomPainter {
         object.boundingBox.bottom * scaleY,
       );
 
-      // Draw the bounding box
       canvas.drawRect(scaledRect, paint);
 
-      // Draw label if available, otherwise draw generic label
       String labelText = 'OBJECT';
       if (object.labels.isNotEmpty) {
         final label = object.labels.first;
