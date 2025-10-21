@@ -1,0 +1,29 @@
+name: vision_guide
+description: "A real-time navigation app for visually impaired users"
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+version: 1.0.0+1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_mlkit_commons: ^0.11.0
+  google_mlkit_barcode_scanning: ^0.14.1
+  google_mlkit_text_recognition: ^0.15.0
+  google_mlkit_object_detection: ^0.15.0
+  camera: ^0.11.2
+  flutter_tts: ^3.8.3
+  vibration: ^3.1.4
+  riverpod: ^2.3.3
+  permission_handler: ^11.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
