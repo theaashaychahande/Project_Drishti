@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
 
@@ -9,7 +8,7 @@ android {
     namespace = "com.example.vision_guide"
     compileSdk = flutter.compileSdkVersion
     
-    // ADD THIS LINE - use your actual NDK version
+   
     ndkVersion = "29.0.14206865"  
     
     compileOptions {
@@ -31,7 +30,6 @@ android {
 
     buildTypes {
     release {
-        // Keep only this line:
         signingConfig = signingConfigs.getByName("debug")
     }
 }
