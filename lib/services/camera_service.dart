@@ -15,22 +15,18 @@ class CameraService {
         return false;
       }
 
-      // Get available cameras
       final cameras = await availableCameras();
-      // Use the back camera
       final firstCamera = cameras.firstWhere(
         (camera) => camera.lensDirection == CameraLensDirection.back,
         orElse: () => cameras.first,
       );
 
-      // Initialize controller
       _controller = CameraController(
         firstCamera,
         ResolutionPreset.medium,
         enableAudio: false,
       );
 
-      // Initialize camera
       await _controller.initialize();
       _isInitialized = true;
 
