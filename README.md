@@ -61,7 +61,7 @@
 - **State Management:** Provider/Riverpod
 - **Platform:** Android
 
-## 📁 Project Structure
+Project Structure
 Project_Drishti/
 ├── lib/
 │   ├── main.dart
