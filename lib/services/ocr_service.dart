@@ -18,7 +18,6 @@ class OcrService {
     _textRecognizer.close();
   }
 
-  // Filter important text (signs, labels)
   static String filterImportantText(String fullText) {
     if (fullText.isEmpty) return '';
 
@@ -32,7 +31,7 @@ class OcrService {
           cleanLine.contains('danger') ||
           cleanLine.contains('warning') ||
           cleanLine.contains('caution') ||
-          cleanLine.length <= 25; // Short texts are likely signs
+          cleanLine.length <= 25; 
     }).toList();
 
     return importantLines.join(', ');
