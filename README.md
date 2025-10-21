@@ -62,7 +62,6 @@
 - **Platform:** Android
 
 ## 📁 Project Structure
-Project Structure
 Project_Drishti/
 ├── lib/
 │   ├── main.dart
@@ -72,7 +71,6 @@ Project_Drishti/
 ├── android/
 ├── ios/
 └── pubspec.yaml
-
 
 ## 🎨 Usage Instructions
 
