@@ -25,11 +25,9 @@ class _NavigationPageState extends State<NavigationPage> {
 
   Future<void> _initializeServices() async {
     try {
-      // Initialize TTS
       await TtsService.initialize();
       await TtsService.speak("Initializing camera. Please wait.");
 
-      // Initialize REAL camera
       final cameraInitialized = await CameraService.initializeCamera();
 
       if (cameraInitialized && CameraService.isInitialized) {
@@ -57,8 +55,8 @@ class _NavigationPageState extends State<NavigationPage> {
   @override
   void dispose() {
     CameraService.dispose();
-    ObjectDetectorService.dispose(); // ADD THIS
-    OcrService.dispose(); // ADD THIS
+    ObjectDetectorService.dispose(); 
+    OcrService.dispose(); 
     TtsService.dispose();
     super.dispose();
   }
@@ -70,7 +68,6 @@ class _NavigationPageState extends State<NavigationPage> {
       body: SafeArea(
         child: Column(
           children: [
-            // Header with back button
             Container(
               padding: EdgeInsets.all(16),
               child: Row(
@@ -98,7 +95,6 @@ class _NavigationPageState extends State<NavigationPage> {
               ),
             ),
 
-            // Camera preview or loading
             Expanded(
               child: _isLoading
                   ? Center(
@@ -115,10 +111,9 @@ class _NavigationPageState extends State<NavigationPage> {
                         ],
                       ),
                     )
-                  : CameraView(), // REAL CAMERA PREVIEW
+                  : CameraView(), 
             ),
 
-            // Status bar
             Container(
               padding: EdgeInsets.all(16),
               color: Colors.grey[900],
@@ -136,7 +131,6 @@ class _NavigationPageState extends State<NavigationPage> {
               ),
             ),
 
-            // Control buttons
             Container(
               padding: EdgeInsets.all(16),
               child: Row(
